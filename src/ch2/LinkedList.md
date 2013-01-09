@@ -6,6 +6,7 @@ Basic Ops
 =========
 * Insert
 * Delete
+* Traversing
 
 * Delete Lists
 * Count
@@ -38,6 +39,7 @@ for(current = head; current != null; current = current.next){}
 * check the null ptr
 * update the head or tail as necessary
 * two pointer trick.
+
 boolean deleteNode(Node head, Data deleteMe){
     Node current = head;
     
@@ -91,7 +93,6 @@ Finding bugs
 3. data come out of the function
 4. error conditions
 ------------------
-Mth to last element
 
 List flattening
 class Node{

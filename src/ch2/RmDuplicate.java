@@ -15,8 +15,7 @@ public class RmDuplicate {
 	public static void main(String[] args) {
 		LinkedListNode head = AssortedMethods.randomLinkedList(10, 0, 4);
 		System.out.println(head.printForward());
-//		deleteDupsRunner(head);
-		insertNth(head, new LinkedListNode(5, null, null), 2);
+//		insertNth(head, new LinkedListNode(5, null, null), 2);
 		System.out.println(head.printForward());
 	}
 	
@@ -58,6 +57,18 @@ public class RmDuplicate {
 //	removeDuplicate()
 //	MoveNodes()
 	
+	public static LinkedListNode insertFront(LinkedListNode head, LinkedListNode n){
+		n.next = head;
+		head = n;
+		return head;
+	}
+	public static void append(LinkedListNode head, LinkedListNode n){
+		LinkedListNode cur = head;
+		if(head == null) {head = n; return;}
+		while(cur.next != null){ cur = cur.next;}
+		cur.next = n;
+	}
+	
 	public static boolean insertNth(LinkedListNode head, LinkedListNode node, int pos){
 		for(int i=0; i < pos; ++i){
 			if(head != null){
@@ -69,6 +80,23 @@ public class RmDuplicate {
 		LinkedListNode next = head.next;
 		head.next = node;
 		node.next = next;
-		return  true;
+		return true;
 	}
+	
+	public static int count(LinkedListNode head){
+		int count = 0;
+		for(LinkedListNode cur = head; cur != null; cur = cur.next){
+			count++;
+		}
+		return count;
+	}
+	
+	public LinkedListNode find(LinkedListNode head, LinkedListNode target){
+		if(head == null) return null;
+		while(head != target && head != null){
+		    head = head.next;
+		}
+		return head;//null if not found
+	}
+	
 }
