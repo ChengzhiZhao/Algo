@@ -6,7 +6,7 @@ import CtCILibrary.LinkedListNode;
 /*
  * 2.7
  */
-public class isPalindrom {
+public class Palindrom {
 
 	/**
 	 * @param args
@@ -30,7 +30,7 @@ public class isPalindrom {
 		
 		LinkedListNode head = nodes[0];
 		System.out.println(head.printForward());
-		isPalindrom q = new isPalindrom();
+		Palindrom q = new Palindrom();
 		System.out.println(q.isPalindrome(head));
 
 	}

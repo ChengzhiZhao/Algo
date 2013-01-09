@@ -1,6 +1,6 @@
 package ch2;
 import CtCILibrary.*;
-public class reverse {
+public class Reverse {
 
 	/**
 	 * @param args

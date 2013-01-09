@@ -6,7 +6,7 @@ import CtCILibrary.LinkedListNode;
 /*
  * delete a node in the middle of a single linked list, given only access to that node
  */
-public class deleteNode {
+public class DeleteNode {
 
 	/**
 	 * @param args
