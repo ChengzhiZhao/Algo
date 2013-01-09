@@ -16,18 +16,19 @@ public class RmDuplicate {
 		LinkedListNode head = AssortedMethods.randomLinkedList(10, 0, 4);
 		System.out.println(head.printForward());
 //		insertNth(head, new LinkedListNode(5, null, null), 2);
+		deleteDupsRunner2(head);
 		System.out.println(head.printForward());
 	}
 	
 	public static void deleteDups(LinkedListNode n){
 		Hashtable<Integer, Boolean> table = new Hashtable<Integer, Boolean>();
-		LinkedListNode previous = null;
+		LinkedListNode previous = null;//as I need to delete node
 		while(n != null){
 			if( table.containsKey(n.data)){
 				previous.next = n.next;
 			} else{
 				table.put(n.data, true);
-				previous = n;
+				previous = n;// maintain the invariant prev
 			}
 			n = n.next;
 		}
@@ -49,13 +50,21 @@ public class RmDuplicate {
 			current = current.next;
 		}	
 	}
-//	insertNth()
-//	sortedInsert()
-//	insertSort()
-//	append()
-//	frontbacksplit() // odd and even
-//	removeDuplicate()
-//	MoveNodes()
+	
+	//prefer while loop
+	public static void deleteDupsRunner2(LinkedListNode head){
+		for(LinkedListNode cur = head; cur != null; cur = cur.next){//[0, end-1]
+			for(LinkedListNode runner = cur; runner.next != null; runner = runner.next){
+				// TODO [cur, end-1] clearZone (cur, runner]
+				if(cur.data == runner.next.data){
+					runner.next = runner.next.next;
+					continue;//cant move to next as it unchecked
+				}
+			}
+		}
+	}
+
+
 	
 	public static LinkedListNode insertFront(LinkedListNode head, LinkedListNode n){
 		n.next = head;

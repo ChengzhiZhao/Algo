@@ -61,13 +61,8 @@ boolean deleteNode(Node head, Data deleteMe){
 
 //TODO problems
 
-DeleteList()
-insertNth()
 sortedInsert()
 insertSort()
-append()
-frontbacksplit() // odd and even
-removeDuplicate()
 MoveNodes()
 
 
