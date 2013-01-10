@@ -14,27 +14,26 @@ public class AddLists {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		LinkedListNode lA1 = new LinkedListNode(4, null, null);
+		LinkedListNode lA1 = new LinkedListNode(3, null, null);
 		LinkedListNode lA2 = new LinkedListNode(1, null, lA1);
 		LinkedListNode lA3 = new LinkedListNode(5, null, lA2);
+		
 		LinkedListNode lB1 = new LinkedListNode(5, null, null);
 		LinkedListNode lB2 = new LinkedListNode(9, null, lB1);
 		LinkedListNode lB3 = new LinkedListNode(1, null, lB2);	
+		
+		LinkedListNode list3 = addLists(lA1, lB1, 0);
+		
 		System.out.println("  " + lA1.printForward());		
-		System.out.println("+ " + lB1.printForward());	
-//		LinkedListNode list3 = addLists(lA1, lB1, 0);
+		System.out.println("+ " + lB1.printForward());			
+		System.out.println("= " + list3.printForward());	
 		
-//		System.out.println("= " + list3.printForward());	
-//		
-//		int l1 = linkedListToInt(lA1);
-//		int l2 = linkedListToInt(lB1);
-//		int l3 = linkedListToInt(list3);
-//		System.out.print(l1 + " + " + l2 + " = " + (l1 + l2));
+		int l1 = linkedListToInt(lA1);
+		int l2 = linkedListToInt(lB1);
+		int l3 = linkedListToInt(list3);
 		
-		LinkedListNode list3 = addListsForward(lA1, lB1);
-		System.out.print(list3.printForward());
-		
-
+		System.out.print(l1 + " + " + l2 + " = " + l3 + "\n");
+		System.out.print(l1 + " + " + l2 + " = " + (l1 + l2));
 	}
 	
 	public static int linkedListToInt(LinkedListNode node) {
@@ -49,9 +48,6 @@ public class AddLists {
  * this is the easy case for add two link list together
  * as we start from the LSD, padding and alignment are unnecessary
  */
-	/*
-	 * pass the carry and return the result
-	 */
 	
 	public static LinkedListNode addLists(LinkedListNode l1, LinkedListNode l2, int carry){
 		if( l1 == null && l2  == null && carry == 0) return null;
@@ -64,49 +60,5 @@ public class AddLists {
 	}
 	
 	
-	/*
-	 * follow up 
-	 * reverse order
-	 */
-	
-	/*
-	 * 1. padding 
-	 * 2. return the result + carry
-	 */
-	
-	public static class SumNode{
-		public LinkedListNode sum = null;
-		public int carry = 0;
-	}
-	
-	public static LinkedListNode addListsForward(LinkedListNode l1, LinkedListNode l2){
-		//padding	
-		SumNode finalSum = addListsForwardHelper(l1, l2);
-		if(finalSum.carry != 0){
-			return insertBefore(finalSum.sum, finalSum.carry);
-		} else {return finalSum.sum;}
-	}
-	
-	public static SumNode addListsForwardHelper(LinkedListNode l1, LinkedListNode l2){
-		
-		if(l1 == null && l2 == null){
-			return new SumNode();
-		} else {
-			SumNode sum = addListsForwardHelper(l1.next, l2.next);
-			int value = sum.carry + l1.data + l2.data;
-			sum.sum = insertBefore(sum.sum, value % 10);//
-			sum.carry = value / 10;
-			return sum;
-		}
-	}
-	
-	public static LinkedListNode insertBefore(LinkedListNode head, int n){
-		LinkedListNode newNode = new LinkedListNode(n, null, null);
-		if( head != null){
-			head.prev = newNode;
-			newNode.next = head;
-		}
-		return newNode;
-	}
-	
+	//follow up reverse order
 }
