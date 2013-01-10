@@ -4,7 +4,12 @@ import java.util.Stack;
 import CtCILibrary.LinkedListNode;
 
 /*
- * 2.7
+ * 2.7 if a linked list is a palindrome
+ * solution:
+ * 1. ofc, I could traveral to the end, and move both head and end, see if match, if not move inward.
+ * 2. single list, the the end can't move backward =>  use a stack
+ * 3. when put stuff in the stack? in the middle. use two ptr to find the middle
+ * 4. care the odd ones!
  */
 public class Palindrom {
 

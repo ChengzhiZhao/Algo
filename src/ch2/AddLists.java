@@ -2,10 +2,18 @@ package ch2;
 import CtCILibrary.*;
 /*
  * 2.5 add linked list
+ * 
  *   3->1->5 513 
  * + 5->9->1 195
  * = 8->0->7 708
  * 
+ * sol:
+ * 1. in this way, it acts as the same way we do the math, add two numbers, and pass forward the carry to next(larger significant digit) 
+ * 2. keypoint here is to pass the carry down and return the this.node up, as we need the head
+ * follow up:
+ * 1. padding the linkedlist
+ * 2. wrapper for head, and int to tmp the carry
+ * 3. first node ready is the LSD, should be in the end of the listm, insertBefore)
  */
 
 public class AddLists {
@@ -49,9 +57,6 @@ public class AddLists {
  * this is the easy case for add two link list together
  * as we start from the LSD, padding and alignment are unnecessary
  */
-	/*
-	 * pass the carry and return the result
-	 */
 
 	public static LinkedListNode addLists(LinkedListNode l1, LinkedListNode l2, int carry){
 		if( l1 == null && l2  == null && carry == 0) return null;

@@ -3,6 +3,8 @@ import CtCILibrary.*;
 
 /*  2.4
  *  partition a linked list so that all node less than x come before all nodes greater or larger than
+ *  sol:
+ *  pointer trick
  */
 
 public class Partition {

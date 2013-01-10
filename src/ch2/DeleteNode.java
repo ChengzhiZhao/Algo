@@ -5,6 +5,9 @@ import CtCILibrary.LinkedListNode;
 
 /* 2.3
  * delete a node in the middle of a single linked list, given only access to that node
+ * sol:
+ * because we can't go to the previous node to update the next pointer.
+ * we could deep copy currrent node as its.next node, and delete the next node
  */
 public class DeleteNode {
 

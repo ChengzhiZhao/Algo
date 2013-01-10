@@ -6,6 +6,18 @@ import CtCILibrary.LinkedListNode;
 
 /*
  * 2.1 remove duplicates from a unsorted linked list
+ * sol:
+ * 1. with hashtable,ez
+ * 2. without hashtable, 
+ * 
+ * invariant: node in clearzone don't have duplicate node is dirtyzone
+ * foreach node cur [begin, end]
+ *    foreach node runner [ cur, end]
+ *        if duplicate, delete this node.
+ *        
+ * [clearzone|dirtyzone]
+ *        cur   runner
+ *
  */
 public class RmDuplicate {
 
