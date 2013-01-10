@@ -1,4 +1,4 @@
-package digit;
+package math;
 
 /*
  * reverse digits of an integer

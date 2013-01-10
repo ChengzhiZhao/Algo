@@ -2,7 +2,12 @@ package ch2;
 import CtCILibrary.*;
 /*
  * 2.5 add linked list
+ *   3->1->5 513 
+ * + 5->9->1 195
+ * = 8->0->7 708
+ * 
  */
+
 public class AddLists {
 
 	/**
@@ -29,7 +34,6 @@ public class AddLists {
 		
 		System.out.print(l1 + " + " + l2 + " = " + l3 + "\n");
 		System.out.print(l1 + " + " + l2 + " = " + (l1 + l2));
-
 	}
 	
 	public static int linkedListToInt(LinkedListNode node) {
@@ -39,17 +43,22 @@ public class AddLists {
 		}
 		return value + node.data;
 	}	
+
+/*
+ * this is the easy case for add two link list together
+ * as we start from the LSD, padding and alignment are unnecessary
+ */
 	
 	public static LinkedListNode addLists(LinkedListNode l1, LinkedListNode l2, int carry){
-		if(l1 == null && l2 == null && carry == 0){return null;}//endpoint
-		int value = (l1 == null? 0: l1.data) + (l2 == null? 0: l2.data)  + carry;
+		if( l1 == null && l2  == null && carry == 0) return null;
+		int value = (l1 == null? 0: l1.data) 
+				+ (l2 == null? 0: l2.data) 
+				+ carry;
 		LinkedListNode result = new LinkedListNode(value %10, null, null);
-		LinkedListNode next = addLists((l1 == null? null:l1.next), 
-				(l2 == null? null:l2.next), 
-				(value >= 10? 1:0));
-		result.setNext(next);
+		result.setNext(addLists(l1.next, l2.next, value /10));
 		return result;
 	}
+	
 	
 	//follow up reverse order
 }
