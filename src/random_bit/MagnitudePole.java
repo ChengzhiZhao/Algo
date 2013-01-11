@@ -1,4 +1,4 @@
-package bit;
+package random_bit;
 
 import java.util.BitSet;
 

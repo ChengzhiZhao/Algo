@@ -12,7 +12,6 @@ import CtCILibrary.LinkedListNode;
  * 4. care the odd ones!
  */
 public class Palindrom {
-
 	/**
 	 * @param args
 	 */
