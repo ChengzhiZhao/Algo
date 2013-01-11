@@ -24,9 +24,11 @@ public class AddLists {
 	public static void main(String[] args) {
 		LinkedListNode lA1 = new LinkedListNode(4, null, null);
 		LinkedListNode lA2 = new LinkedListNode(1, null, lA1);
+		@SuppressWarnings("unused")
 		LinkedListNode lA3 = new LinkedListNode(5, null, lA2);
 		LinkedListNode lB1 = new LinkedListNode(5, null, null);
 		LinkedListNode lB2 = new LinkedListNode(9, null, lB1);
+		@SuppressWarnings("unused")
 		LinkedListNode lB3 = new LinkedListNode(1, null, lB2);	
 		System.out.println("  " + lA1.printForward());		
 		System.out.println("+ " + lB1.printForward());	

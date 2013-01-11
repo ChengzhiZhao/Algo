@@ -10,6 +10,11 @@ import CtCILibrary.LinkedListNode;
  * 2. single list, the the end can't move backward =>  use a stack
  * 3. when put stuff in the stack? in the middle. use two ptr to find the middle
  * 4. care the odd ones!
+ * 
+ * 1->2->3->3->2->1
+ *       |        |
+ *     slow     quick
+ * then start pushing stack, [1, 2, 3], then move start from head to compare.
  */
 public class Palindrom {
 	/**
@@ -35,12 +40,38 @@ public class Palindrom {
 		LinkedListNode head = nodes[0];
 		System.out.println(head.printForward());
 		Palindrom q = new Palindrom();
-		System.out.println(q.isPalindrome(head));
+		System.out.println(q.isPalindrome1(head));
 
 	}
 	/*
+	 * as sol
+	 */
+	boolean isPalindrome1(LinkedListNode head){
+		assert(head!= null);
+		LinkedListNode cur = head;
+		LinkedListNode runner = head;
+		while(runner.next != null && runner.next.next != null){
+			cur = cur.next;
+			runner = runner.next.next;
+		}
+		if(runner.next == null) cur = cur.next;//align cur
+		Stack<Integer> stack = new Stack<Integer>();
+		for(;cur!=null; cur= cur.next){
+			stack.push(cur.data);
+		}
+		cur = head;
+		while(stack.size() > 0 ){
+			if(stack.pop() != cur.data){return false;}
+			cur = cur.next;
+		}
+		return true;
+	}
+	
+	/*
 	 * iterative, compare half to half
 	 * push half of the list to stack.
+	 * 1. push the first half to stack
+	 * 2. when pass the mid point, pop it and see if match
 	 */
 	boolean isPalindrome(LinkedListNode head){
 		LinkedListNode fast = head;
@@ -63,8 +94,8 @@ public class Palindrom {
 		}
 		return true;
 	}
-	
 	/*
-	 * recursive ??
+	 * recursive
 	 */
+	
 }

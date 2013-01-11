@@ -12,6 +12,19 @@ Basic Ops
 * Count
 * find the nth element
 
+----
+single, double or circular
+sorted?
+head and tail reference
+----
+sentinel node vs Null
+iterator i = list.begin();
+*list.end() = x;
+while(*i != x){++i;}
+return i;
+
+
+-----------
 From other perspective:
 *Working with head, keep a copy of it. that means that reference to the head must be updated.
 public ListElement insertInFront(Node head, Data data){

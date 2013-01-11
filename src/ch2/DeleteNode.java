@@ -15,11 +15,13 @@ public class DeleteNode {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		LinkedListNode head = AssortedMethods.randomLinkedList(5, 0, 10);
+		LinkedListNode head = AssortedMethods.randomLinkedList(10, 0, 10);
 		System.out.println(head.printForward());
+		nthToLast(head, 4);
 //		deleteNodeMiddle(head.next.next.next.next); // delete node 4
+		System.out.println(head.printForward());
 //		deleteEnd(head);
-		System.out.println(deleteEnd(head).printForward());
+//		System.out.println(deleteEnd(head).printForward());
 
 	}
 	public static boolean deleteNodeMiddle(LinkedListNode node){
@@ -28,6 +30,7 @@ public class DeleteNode {
 		node.next = node.next.next;
 		return true;
 	}
+	
 	public static LinkedListNode deleteFront(LinkedListNode head){
 		if(head == null || head.next == null){
 			return null;
@@ -49,5 +52,14 @@ public class DeleteNode {
 		}
 		cur.next = null;
 		return head;
+	}
+	
+	public static int nthToLast(LinkedListNode head, int k){
+		if(head == null) return 0;
+		int i = nthToLast(head.next, k) + 1;
+		if(i == k){
+			deleteNodeMiddle(head);
+		}
+		return i;
 	}
 }
