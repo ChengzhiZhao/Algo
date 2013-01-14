@@ -1,6 +1,6 @@
 package ch3;
 /*
- * 3.5
+ * 3.5 implement queue with two stacks
  */
 public class QueueWithTwoStacks {
 
