@@ -11,8 +11,13 @@ import java.util.Stack;
  *         shift s1 to s2.
  */
 public class QueueWithTwoStacks {
-	Stack<Integer> s1 = new Stack<Integer>();
-	Stack<Integer> s2 = new Stack<Integer>();
+	Stack<Integer> s1, s2;
+	
+	public QueueWithTwoStacks(){
+		s1 = new Stack<Integer>();
+		s2 = new Stack<Integer>();
+		
+	}
 	
 	public void enqueue(int value){
 		s1.push(value);
