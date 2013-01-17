@@ -32,8 +32,8 @@ public class SortedStack {
 		assert(unsorted.size() > 0);
 		while(unsorted.size() > 0){
 			int cur = unsorted.pop();
-			if(sorted.size() == 0) {sorted.push(cur); return;}
-			while( sorted.peek() > cur && sorted.size() > 0){
+			if(sorted.isEmpty()) {sorted.push(cur); continue;}
+			while( !sorted.isEmpty() && sorted.peek() > cur){
 				cache.push(sorted.pop());
 			}
 			sorted.push(cur);
@@ -43,8 +43,7 @@ public class SortedStack {
 		}
 	}
 	public String toString(){
-		return unsorted.toString() + "\n" +
-	           cache.toString() + "\n" + sorted.toString();
+		return sorted.toString();
 	}
 	
 	
