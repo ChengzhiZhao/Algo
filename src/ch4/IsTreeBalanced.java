@@ -38,7 +38,14 @@ public class IsTreeBalanced {
 		} else {
 			return isBalanced(root.left) && isBalanced(root.right);
 		}
+	}
+	//sol2:
+	//short-circuit, early termination
+	
+	public static int checkHeight(TreeNode root){
+		if(root == null) return 0;
 		
 	}
+	
 
 }
