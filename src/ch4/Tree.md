@@ -36,6 +36,8 @@ processed, thread, and concurrency issue
 lock and mutex semaphores monitors
 deadlock livelock
 
+usOS
+
 
 resource a process| thread need
 context switching

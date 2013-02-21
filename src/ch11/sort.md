@@ -8,10 +8,10 @@ nlgn worstcase
 
 
 
-1. hashtable
+1. hashtable y
 2. BST
-3. mergeSort
-4. linkedlist
+3. mergeSort y
+4. linkedlist y
 ===
 Week 3 - 24-Dec-2012 - merge_sort.php
 Write a function that merges an array of already sorted arrays, producing one large, still sorted array. For example, your input might be:
