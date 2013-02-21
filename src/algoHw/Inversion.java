@@ -29,6 +29,7 @@ public class Inversion {
 		while (scanner.hasNextInt()) {
 			tall[i++] = scanner.nextInt();
 		}
+		scanner.close();
 		return tall;
 	}
 
