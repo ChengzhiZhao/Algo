@@ -8,11 +8,10 @@ import java.util.TreeMap;
 
 public class Graph {
 	private final int V;
-	private int E;
 	private Map<Integer, Vertex> adj = new TreeMap<Integer, Vertex>();
 	private Set<Edge> edges = new HashSet<Edge>();
 
-	private class Edge {
+	static class Edge {
 		private int first;
 		private int second;
 
@@ -28,10 +27,17 @@ public class Graph {
 		public String toString() {
 			return new String(first + "-" + second);
 		}
-
-		// public boolean equals(Edge){
-		// return ((f == first && s == second) || (s == first && f == second));
-		// }
+		
+		public boolean equals(Object c){
+			Edge other = (Edge)c;
+			return (other.first == this.first && other.second == this.second) || 
+					(other.second == this.first && other.first == this.second);
+		}
+		public int hashCode(){
+			int max = Math.max(first, second);
+			int min = Math.min(first, second);
+			return max*31 + min;
+		}
 	}
 
 	public Graph(int[][] arr) {
@@ -40,26 +46,46 @@ public class Graph {
 			if (row != null) {
 				Vertex thisRow = new Vertex(row);
 				adj.put(row[0], thisRow);
-				E += row.length - 1;
+				for(int edgeTo: thisRow.adjv){
+					Edge e = new Edge(row[0], edgeTo);
+					if (!edges.contains(e)){
+						edges.add(new Edge(row[0], edgeTo));
+					}
+				}
 			}
 		}
-		E /= 2;
 	}
 
 	public int V() {
 		return V;
 	}
-
-	public int E() {
-		return E;
-	}
-
+	
 	public void addEdge(int v, int w) {
 		adj.get(v).addV(w);
 	}
 
 	public Vertex adj(int v) {
 		return adj.get(v);
+	}
+	
+	public void rmEdge(Edge e){
+		edges.remove(e);
+	}
+	public void replace(int from, int to){
+		Vertex fixingIndex = adj.get(from);
+		for(int i: fixingIndex.adjv){
+			adj.get(i).replace(from, to);
+		}
+		Vertex adding = adj.get(from);
+		for(int i: adding.adjv){
+			adj.get(to).addV(i);
+			System.out.println();
+		}
+		for(int i: adj.get(to){
+			if(i == to){
+				adj.remove(i);
+			}
+		}
 	}
 
 	public String toString() {
@@ -76,11 +102,28 @@ public class Graph {
 
 	private static class Vertex {
 		private final int lbl;
-		private Set<Integer> adjv;
+		private ArrayList<Integer> adjv;
 
 		public Vertex(int lbl) {
 			this.lbl = lbl;
-			adjv = new HashSet<Integer>();
+			adjv = new ArrayList<Integer>();
+		}
+
+		public void replace(int from, int to) {
+			// TODO Auto-generated method stub
+//			for(int i: adjv){
+//				if(i == from){
+//					adjv.remove(i);
+//					if(to != lbl) adjv.add(to);
+//				}
+//			}
+			for(int i=0; i < adjv.size(); ++i){
+				if(adjv.get(i) == from){
+					adjv.remove(i);
+//					if(to != lbl) 
+					adjv.add(to);
+				}
+			}
 		}
 
 		public boolean contains(int i) {
@@ -99,10 +142,6 @@ public class Graph {
 			adjv.add(v2);
 		}
 
-		public void rmV(int v2) {
-			adjv.remove(v2);
-		}
-
 		public String toString() {
 			return adjv.toString();
 		}
@@ -114,6 +153,12 @@ public class Graph {
 				{ 4, 3, 7, 8 }, { 5, 1, 2, 6 }, { 6, 1, 2, 5, 7 },
 				{ 7, 3, 6, 8, 4 }, { 8, 4, 7 } };
 		Graph g = new Graph(input);
+//		System.out.println(g.toString());
+//		g.rmEdge(new Edge(1, 5));
+		g.rmEdge(new Edge(1, 5));
+//		g.addEdge(2, 5);
+//		g.addEdge(5, 6);
+		g.replace(1, 5);
 		System.out.println(g.toString());
 
 	}
