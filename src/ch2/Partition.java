@@ -5,6 +5,7 @@ import CtCILibrary.*;
  *  partition a linked list so that all node less than x come before all nodes greater or larger than
  *  sol:
  *  pointer trick
+ *  TODO: using pivot
  */
 
 public class Partition {

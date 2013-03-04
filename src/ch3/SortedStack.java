@@ -11,8 +11,8 @@ import java.util.Stack;
  *  5     3
  *  
  *  0. all in s1
- *  1. keep poped
- *  2. [<] poped[>]
+ *  1. keep poped. move element from s1, s2, the order is same.
+ *  2. invariant, sorted stack is alway sorted. find the right place to push.
  */
 public class SortedStack {
 	Stack<Integer> unsorted,cache,sorted;
