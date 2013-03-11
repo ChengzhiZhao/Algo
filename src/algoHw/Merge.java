@@ -16,9 +16,10 @@ public class Merge {
 	/**
 	 * @param args
 	 */
-	private static final int CUTOFF = 3;
+	private static final int CUTOFF = 0;
 	public static void main(String[] args) {
-		int[] array = {5, 1, 2, 4, 3};
+//		int[] array = {5, 1, 2, 4, 3};
+		int[] array = {21,38,24,53,39,58,42,79,41,90,12,49};
 		sort(array);
 		System.out.println("*****");
 		System.out.println(Arrays.toString(array));
@@ -47,6 +48,7 @@ public class Merge {
 	}
 	
 	private static void merge(int[]src, int[] dst, int lo, int mid, int hi){
+		System.out.println(lo + " " + mid +" " + hi + ":" +Arrays.toString(src));
 		assert isSorted(src, lo, mid);
 		assert isSorted(src, mid+1, hi);
 		int i = lo, j = mid+1;

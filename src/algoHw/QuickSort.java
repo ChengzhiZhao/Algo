@@ -102,8 +102,8 @@ public class QuickSort {
 			}
 		}
 		swap(a, pivot, i-1);
+		System.out.println(Arrays.toString(a));
 		return i - 1;
-
 	}
 
 	private static void swap(int[] a, int i, int j) {
@@ -139,12 +139,13 @@ public class QuickSort {
 	}
 	
     public static void main( String[] args ) {
-    	int[] arr = read("input/QuickSort.txt");
+//    	int[] arr = read("input/QuickSort.txt");
+    	int[] arr = {2, 1,1,1,1,1,2,1,1,2,2,1};
 //    	System.out.println(Arrays.toString(arr));
         testQsWithStrategy(arr.clone(), PIVOT_ON_FIRST); //162085
-        testQsWithStrategy(arr.clone(), PIVOT_ON_LAST);  //164123
-        testQsWithStrategy(arr.clone(), PIVOT_ON_MEDIAN);//138382
-        testQsWithStrategy(arr.clone(), PIVOT_AT_RANDOM);//not better that pivoting on a median
+//        testQsWithStrategy(arr.clone(), PIVOT_ON_LAST);  //164123
+//        testQsWithStrategy(arr.clone(), PIVOT_ON_MEDIAN);//138382
+//        testQsWithStrategy(arr.clone(), PIVOT_AT_RANDOM);//not better that pivoting on a median
     }
     
     private static void testQsWithStrategy(int[] arr, PivotStrategy str) {
