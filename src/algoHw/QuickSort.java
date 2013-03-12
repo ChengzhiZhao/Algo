@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/*
+ * tim homework2, which partition strategy is best for quicksort
+ */
 public class QuickSort {
 	private interface PivotStrategy {
 		public void selectPivot(int[] a, int p, int r);

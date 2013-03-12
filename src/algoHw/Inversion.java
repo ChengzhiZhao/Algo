@@ -4,6 +4,9 @@ import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/*
+ * tim homework1
+ */
 public class Inversion {
 
 	/**

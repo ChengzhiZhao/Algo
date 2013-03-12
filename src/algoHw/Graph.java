@@ -9,7 +9,9 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.TreeMap;
-
+/*
+ * homework#3, random contraction algorithm for min cut problem
+ */
 public class Graph {
 	private Map<Integer, Vertex> adj;;
 	private List<Edge> edges = new ArrayList<Edge>();
